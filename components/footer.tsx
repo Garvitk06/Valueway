@@ -47,8 +47,8 @@ const TwitterIcon = ({ className }: { className?: string }) => (
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/#services" },
-  { label: "Industries", href: "/#industries" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
   { label: "Careers", href: "/careers" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
