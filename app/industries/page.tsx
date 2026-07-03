@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Section } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
-import { H1, H2, Body, Eyebrow } from "@/components/ui/typography";
+import { H1, Body, Eyebrow } from "@/components/ui/typography";
 import {
   Building2, Activity, Cpu, Factory, ShoppingBag, Package,
   Car, Plane, HardHat, BookOpen, Wrench, Truck, Megaphone, Flame, Radio, Palmtree,
