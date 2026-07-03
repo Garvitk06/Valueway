@@ -3,21 +3,146 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0B;
+  --foreground: #F5F5F4;
+  
+  --accent: #14B8A6;
+  --accent-foreground: #0A0A0B;
+  
+  --card: #121214;
+  --card-foreground: #F5F5F4;
+  
+  --border: #1F1F22;
+  
+  --muted: #1F1F22;
+  --muted-foreground: #A3A3A3;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.light {
+  --background: #F5F5F4;
+  --foreground: #0A0A0B;
+  
+  --accent: #0D9488;
+  --accent-foreground: #FFFFFF;
+  
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0B;
+  
+  --border: #E4E4E7;
+  
+  --muted: #F4F4F5;
+  --muted-foreground: #71717A;
+}
+
+/* Light mode utility overrides for pre-written layout components */
+html.light .bg-zinc-950,
+html.light [class*="bg-zinc-950/40"],
+html.light [class*="bg-zinc-950/50"] {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+html.light .bg-zinc-900,
+html.light [class*="bg-zinc-900/60"],
+html.light [class*="bg-zinc-900/80"] {
+  background-color: var(--muted) !important;
+}
+
+html.light .border-zinc-800,
+html.light .border-zinc-900,
+html.light [class*="border-zinc-900/60"],
+html.light [class*="border-zinc-900/80"] {
+  border-color: var(--border) !important;
+}
+
+html.light .text-white,
+html.light .text-neutral-200,
+html.light .text-neutral-300 {
+  color: var(--foreground) !important;
+}
+
+html.light .text-neutral-400,
+html.light .text-neutral-500 {
+  color: var(--muted-foreground) !important;
+}
+
+html.light [class*="linear-gradient"] {
+  background-image: linear-gradient(to right, #e4e4e7 1px, transparent 1px), linear-gradient(to bottom, #e4e4e7 1px, transparent 1px) !important;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom modern scrollbar for a premium look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F1F22;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #14B8A6;
+}
+
+/* Neon glow helper class */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(20, 184, 166, 0.4);
+}
+
+@keyframes float-blob-1 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(40px, -60px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-blob-2 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(0.85); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob-1 {
+  animation: float-blob-1 20s infinite alternate ease-in-out;
+}
+
+.animate-blob-2 {
+  animation: float-blob-2 28s infinite alternate ease-in-out;
 }
 
 @layer utilities {
